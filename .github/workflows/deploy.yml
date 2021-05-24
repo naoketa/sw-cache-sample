@@ -19,3 +19,5 @@ jobs:
         run: npm run build --if-present
       - name: Deploy To GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
+        with:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.GITHUB_TOKEN }}
