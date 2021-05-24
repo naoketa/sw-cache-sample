@@ -15,8 +15,8 @@ jobs:
           node-version: "14.x"
       - name: npm install
         run: npm install
-      - name: Build
-        run: npm run build:ghp --if-present
+      - name: Build & Modify ngsw-config.json to /base/href
+        run: npm run build:ghp --if-present && ./node_modules/.bin/ngsw-config ./dist/sw-cache-sample ./ngsw-config.json /sw-cache-sample
       - name: Deploy To GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
